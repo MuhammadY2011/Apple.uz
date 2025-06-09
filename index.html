@@ -4,14 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AirPods Pro 2</title>
-  <link rel="icon" href="apple-round-icon-1024x1024-h8oyfrjf.png" />
+  <link rel="icon" href="https://www.apple.com/ac/globalfooter/8/en_US/assets/ac-footer/breadcrumbs/apple/icon_large.svg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
       background-color: black;
       color: white;
-      margin: 0;
       padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       overflow-x: hidden;
     }
@@ -48,7 +51,7 @@
       color: white;
       margin-bottom: 20px;
       animation: fadeInDown 1.5s ease-out forwards;
-      opacity: 10;
+      opacity: 0;
     }
 
     .airpods-img {
@@ -72,15 +75,43 @@
     }
 
     hr {
-      border: 1px solid #333;
+      border: 1px solid #ffffff;
       width: 200px;
       margin: 10px auto;
     }
 
+    /* Scroll Section dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd*/
+    .scroll-text-section {
+      background-color: black;
+      padding: 100px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .scroll-text-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-text h2 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: rgb(122, 122, 122);
+    }
+
+    .scroll-text p {
+      max-width: 800px;
+      margin: 20px auto 0;
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
     /* Animations */
     @keyframes fadeInDown {
-      0% { transform: translateY(-50px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 2; }
+      0% { transform: translateY(-60px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 1; }
     }
 
     @keyframes fadeInUp {
@@ -97,7 +128,208 @@
         width: 90%;
         top: 50%;
       }
+
+      .scroll-text h2 {
+        font-size: 2rem;
+      }
+
+      .scroll-text p {
+        font-size: 1rem;
+      }
     }
+    .scroll-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 150px 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .scroll-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-video {
+      width: 40%;
+      border-radius: 30px;
+      margin-right: 10px;
+    }
+
+    .scroll-text {
+      max-width: 600px;
+      font-size: 1.5rem;
+      color: #ccc;
+    }
+
+    .highlight {
+      color: white;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .scroll-section {
+        flex-direction: column;
+        padding: 80px 20px;
+      }
+
+      .scroll-video {
+        width: 90%;
+        margin: 0 0 30px 0;
+      }
+
+      .scroll-text {
+        text-align: center;
+      }
+    }
+    @media (max-width: 768px) {
+  .h2-chip-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .h2-image img {
+    max-width: 80%;
+  }
+
+  .h2-text {
+    font-size: 1.1rem;
+  }
+}
+.h2-chip-section {
+  background-color: black;
+  color: rgb(213, 213, 213);
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h2-chip-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 40px;
+  border-top: 1px solid #959595;
+  border-bottom: 1px solid #a9a9a9;
+  padding: 60px 0;
+}
+
+.h2-image img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.h2-text {
+  max-width: 600px;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #707070;
+}
+
+.h2-text strong {
+  color: rgb(232, 232, 232);
+}
+h2 {
+  text-align: center;
+}
+
+.video-background-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s ease-out;
+}
+
+.video-background-section.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.overlay-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #f2f2f2;
+  padding: 0 20px;
+}
+
+.overlay-content h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: fadeInDown 1.2s ease forwards;
+}
+
+.overlay-content p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #ffffff;
+  animation: fadeInUp 1.2s ease 0.5s forwards;
+  opacity: 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #eeeeee;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
+  animation: fadeInUp 1.2s ease forwards;
+}
+ 
+.scroll-text p {
+  max-width: 800px;
+  margin: 20px auto 0;
+  font-size: 1.2rem;
+  color: #f9f9f9;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(.4,2,.6,1);
+}
+
+.scroll-text-section.visible .scroll-text p {
+  opacity: 1;
+  transform: translateY(0);
+}
+ 
+.value-prop-list {
+    margin-left: 0;
+    list-style-type: none;
+}
+
+.scroll-video {
+  width: 40%;
+  border-radius: 30px;
+  margin-right: 10px;
+  transition: opacity 1s ease; /* Qo‘shildi */
+  opacity: 1; /* Default qiymat */
+}
+
+
   </style>
 </head>
 <body>
@@ -107,40 +339,86 @@
   <div class="container-fluid justify-content-center">
     <a class="navbar-brand me-3" href="#"><img src="apple-round-icon-1024x1024-h8oyfrjf.png" alt="Apple Logo"></a>
     <div class="navbar-nav d-flex flex-row justify-content-center">
-      <a class="nav-link" href="#">Store</a>
-      <a class="nav-link" href="#">Mac</a>
-      <a class="nav-link" href="#">iPhone</a>
-      <a class="nav-link" href="#">Support</a>
+      <a class="nav-link" href="https://www.apple.com/store">Store</a>
+      <a class="nav-link" href="https://www.apple.com/mac/">Mac</a>
+      <a class="nav-link" href="https://www.apple.com/uz/iphone/">iPhone</a>
+      <a class="nav-link" href="https://support.apple.com/">Support</a>
     </div>
   </div>
 </nav>
 
 <!-- Sub-Info -->
-<div class="sub-title">
+<div class="sub-title d-flex flex-column align-items-top text-center p-3 top">
   AirPods Pro 2
-  <hr>
+
+  <hr style="border: 1px solid #ffffff; width: 1000px; margin: 10px auto;">
 </div>
 
 <!-- Main Section -->
 <div class="main-section">
-  <h1 class="main-title"> AirPods Pro</h1>
-  <img src="airpods" alt="AirPods Pro" class="airpods-img"> <!-- Rasming nomini to‘g‘rilang -->
+  <h1 class="main-title">AirPods Pro</h1>
+  <img src="airpods" alt="AirPods Pro" class="airpods-img"> <!-- Rasm nomini to‘g‘rilang -->
+</div>
+
+<!-- ...existing code... -->
+<section class="scroll-text-section">
+  <div class="scroll-text text-center center">
+    <h2>H2. More immersive by every measure.</h2>
+    <p>
+      The Apple-designed H2 chip is the force behind the advanced audio performance of AirPods Pro 2,
+      working with the driver and amplifier to create crisp, high-definition sound.
+      It uses computational algorithms to deliver noise cancellation, superior three-dimensional sound,
+      efficient battery life, and imperceivable end-to-end wireless audio latency for games — all at once.
+    </p>
+  </div>
+</section>
+<!-- ...existing code... -->
+<hr style="border: 1px solid #ffffff; width: 900px; margin: 1px auto;">
+
+<!-- Scroll-Reveal Section -->
+<div class="scroll-section" id="revealSection">
+  <video class="scroll-video" autoplay muted loop playsinline>
+    <source src="large_2x.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="scroll-text">
+    AirPods Pro 2 pair with Apple Vision Pro to deliver
+    <span class="highlight">Lossless Audio with ultra-low latency</span>,
+    for an unprecedented sound experience. Both feature the
+    <span class="highlight">H2 chip</span>, unlocking uncompressed, breathtaking sound in real time.
+  </div>
 </div>
 
 
+
+<!-- Scroll-triggered Video Background Section -->
+<section class="video-background-section" id="videoRevealSection">
+  <video autoplay muted loop playsinline class="background-video">
+    <source src="large.mp4" type="video/mp4" />
+    Sizning brauzeringiz video tag'ni qo‘llab-quvvatlamaydi.
+  </video>
+  <div class="overlay-content text-center">
+  <h2>
+    <span class="highlight">Up to 2x more Active Noise Cancellation.</span><br>
+    <span class="highlight">Adaptive Audio</span> that tailors noise control to your environment.<br>
+    <span class="highlight">Personalized Spatial Audio</span> that immerses you in sound.<br>
+    And a new end-to-end experience to <span class="highlight">test</span>, <span class="highlight">aid</span>, and help protect your hearing.
+  </h2>
+</div>
+</section>
 
 <!-- Bottom Info -->
 <div class="bottom-info text-center p-3 bg-dark">
-  AirPods Pro 2 now feature a clinical-grade Hearing Aid capability. <a href="#" class="text-primary">Learn more</a>
+  AirPods Pro 2 now feature a clinical-grade Hearing Aid capability.
+  <a href="#" class="text-primary">Learn more</a>
 </div>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+<!-- Scroll effect script -->
 <script>
-  // Animation on load
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const mainTitle = document.querySelector('.main-title');
     const airpodsImg = document.querySelector('.airpods-img');
 
@@ -148,4 +426,97 @@
       mainTitle.style.opacity = '1';
       airpodsImg.style.opacity = '1';
     }, 500);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const scrollSection = document.querySelector('.scroll-text-section');
+    observer.observe(scrollSection);
   });
+  // Scroll reveal
+  window.addEventListener('scroll', () => {
+    const section = document.getElementById('revealSection');
+    const sectionTop = section.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (sectionTop < windowHeight - 500) {
+      section.classList.add('show');
+    }
+  });
+  window.addEventListener('scroll', () => {
+    const videoSection = document.getElementById('videoRevealSection');
+    const videoTop = videoSection.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (videoTop < windowHeight - 500) {
+      videoSection.classList.add('reveal');
+    }
+  });
+  const video = document.querySelector('.scroll-video');
+
+function swapVideo(newSrc) {
+  // Video opacity ni 0 ga tushiramiz
+  video.style.opacity = 0;
+
+  // 1.5 sekund kutib yangi videoni yuklaymiz
+  setTimeout(() => {
+    video.querySelector('source').src = newSrc;
+    video.load();
+
+    // Video o'ynashini boshlaymiz
+    video.play();
+
+    // Video asta-sekin paydo bo'ladi
+    video.style.opacity = 1;
+  }, 1500);
+}
+
+// Misol uchun, video manzilini o'zgartirish:
+swapVideo('large_2x.mp4'); // Yangi video manzilini kiriting
+function swapVideo(newSrc) {
+  const video = document.querySelector('.scroll-video');
+  const source = video.querySelector('source');
+
+  // Fade out
+  video.style.opacity = 0;
+
+  // 1 sekund kutib yangi video manzilini yuklab, fade in qilamiz
+  setTimeout(() => {
+    source.src = newSrc;
+    video.load();
+    video.play();
+
+    // Fade in
+    video.style.opacity = 1;
+  }, 1000);
+}
+let isSwapping = false;
+
+function swapVideo(newSrc) {
+  if (isSwapping) return;
+  isSwapping = true;
+
+  const video = document.querySelector('.scroll-video');
+  const source = video.querySelector('source');
+
+  video.style.opacity = 0;
+
+  setTimeout(() => {
+    source.src = newSrc;
+    video.load();
+    video.play();
+
+    video.style.opacity = 1;
+    setTimeout(() => isSwapping = false, 1000); // keyin ruxsat beriladi
+  }, 1000);
+}
+
+</script>
+
+</body>
+</html>
