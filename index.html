@@ -56,7 +56,7 @@
       top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 1300px;
+      width: 300px;
       z-index: 0;
       pointer-events: none;
       animation: fadeInUp 2s ease-out forwards;
@@ -120,10 +120,10 @@
       }
 
       .airpods-img {
-        width: 90%;
+        width: 10%;
         top: 50%;
       }
-
+ 
       .scroll-text h2 {
         font-size: 2rem;
       }
@@ -152,7 +152,7 @@
       width: 40%;
       border-radius: 30px;
       margin-right: 10px;
-      transition: opacity 1s ease;
+      transition: opacity 2s ease;
       opacity: 1;
     }
 
@@ -170,7 +170,7 @@
     @media (max-width: 768px) {
       .scroll-section {
         flex-direction: column;
-        padding: 80px 20px;
+        padding: 80px 210px;
       }
 
       .scroll-video {
@@ -194,7 +194,7 @@
     }
     .content {
       max-width: 1200px;
-      width: 100%;
+      width: 1100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -235,16 +235,157 @@
       border-radius: 10px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.25);
     }
-    @media (max-width: 768px) {
+    @media (max-width: 7168px) {
       .content {
         flex-direction: column;
         text-align: center;
       }
       .text, .image {
-        transform: translateY(50px);
+        transform: translateY(100px);
       }
     }
+
+    .section {
+  transition: transform 1.1s;
+}
+.section.swapped {
+  transform: translateY(100px); /* yoki translateX uchun yon tomonga */
+}
+.section {
+  transition: opacity 1.5s;
+  opacity: 1;
+}
+.section.hide {
+  opacity: 0;
+}
+.section {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.section.flipped {
+  transform: rotateY(180deg);
+}
+.apple-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 0 32px 0;
+  background: #fff;
+}
+
+.airpods-img {
+  height: 220px;
+  width: 220px;
+  margin-bottom: 20px;
+}
+
+.airpods-text {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: -300px;
+  max-width: 340px;
+  color: #ffffff;
+}
+
+.features-row {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-icon {
+  height: 56px;
+  width: 56px;
+  margin-bottom: 10px;
+}
+
+.feature-label {
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: center;
+}
     /* End Apple animation section */
+    /* Main-section uchun alohida class */
+.main-airpods-img {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  max-width: 90vw;
+  z-index: 0;
+  pointer-events: none;
+  animation: fadeInUp 2s ease-out forwards;
+  opacity: 0;
+}
+
+/* Apple section uchun avvalgi kod o'zgarishsiz qoladi */
+.airpods-img {
+  height: 220px;
+  width: 247px;
+  margin-bottom: 35px;
+  top: 6.45rem;
+}
+.apple-section {
+  background: #fff;
+  padding: 96px 1 260px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 224px;
+}
+
+.apple-section .airpods-img {
+  height: 220px;
+  width: 220px;
+  object-fit: contain;
+  margin-bottom: 2621px;
+  z-index: 5;
+  /* position: static - default, no absolute! */
+}
+
+.apple-section .airpods-text {
+  color: #ffffff;
+  font-size: 1.70rem;
+  margin-bottom: -105px;
+  text-align: center;
+  max-width: 12210px;
+  font-weight: 11220;
+  z-index: 1;
+}
+
+.apple-section .features-row {
+  display: flex;
+  gap: 290px;
+  justify-content: center;
+  align-items: center;
+}
+
+.apple-section .feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 590px;
+  min-height: 3px;
+}
+
+.apple-section .feature-icon {
+  height: 55px;
+  width: 50px;
+  margin-bottom: 60px;
+}
+
+.apple-section .feature-label {
+  font-size: 2.34rem;
+  color: #ffffff;
+  text-align: center;
+}
   </style>
 </head>
 <body>
@@ -271,7 +412,7 @@
 <!-- Main Section -->
 <div class="main-section">
   <h1 class="main-title">AirPods Pro</h1>
-  <img src="airpods" alt="AirPods Pro" class="airpods-img">
+  <img src="airpods" alt="AirPods Pro" class="main-airpods-img">
 </div>
 
 <!-- Scroll Text Section -->
@@ -302,6 +443,8 @@
   </div>
 </div>
 
+<hr style="border: 1px solid #ffffff; width: 900px; margin: 1px auto;">
+
 <!-- Apple-like Section 1 -->
 <section class="section">
   <div class="content">
@@ -317,7 +460,7 @@
     </div>
   </div>
 </section>
-
+<hr style="border: 1px solid #ffffff; width: 900px; margin: 1px auto;">
 <!-- Apple-like Section 2 (fixed visibility and reveal) -->
 <section class="section">
   <div class="content">
@@ -329,6 +472,26 @@
     </div>
     <div class="image">
       <img src="audio_airpod_guts_bottom__bfet1uy1eg0y_large_2x (1).jpg" alt="AirPods 2" />
+    </div>
+  </div>
+</section>
+<hr style="border: 1px solid #ffffff; width: 900px; margin: 1px auto;">
+<section class="section scroll-section apple-section">
+  <img src="airpods_case_hw__fkhpk8iv60ey_large_2x.png" class="airpods-img" alt="AirPodsCase">
+  <div class="airpods-text">
+    The AirPods Pro have 2 types of intelligent ways to listen.
+  </div>
+  <div class="features-row">
+    <div class="feature-item">
+      <img src="icon_adaptive_audio__gb7s6l85v0y2_large_2x.png" class="feature-icon" alt="Adaptive Audio">
+      <div class="feature-label">Adaptive Audio</div>
+    </div>
+    <div class="feature-item">
+      <img src="icon_noise_cancellation__bsxmxitwe9le_large_2x.png" class="feature-icon" alt="Noise Cancellation">
+      <div class="feature-label">Noise Cancellation</div>
+      <h5>Pro-level Active Noise
+Cancellation removes up to 2x more background noise before it
+reaches your ears.4</h5>
     </div>
   </div>
 </section>
