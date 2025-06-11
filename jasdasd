@@ -1,0 +1,26 @@
+import React, { useState } from "react";
+import "./index.html"; // Assuming you have a styles.css file for styling
+
+const SwapEffectExample = () => {
+  const [swapped, setSwapped] = useState(false);
+
+  const handleSwap = () => {
+    setSwapped((prev) => !prev);
+  };
+
+  return (
+    <div>
+      <button onClick={handleSwap}>Swap</button>
+      <div className="sections-container">
+        <section className={`section user1 ${swapped ? "swap" : ""}`}>
+          User 1 section
+        </section>
+        <section className={`section user2 ${swapped ? "swap" : ""}`}>
+          User 2 section
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default SwapEffectExample;
